@@ -157,9 +157,9 @@ const TREATMENTS: Treatment[] = [
   },
   {
     id: 'benja-phakhi',
-    name: 'Nuad Thai Benja Phakhi (Thai-Königs-Massage)',
+    name: 'Nuad Thai Benja Phakhi',
     category: 'benja',
-    subtitle: 'Original Meister-Methode nach Sutep Mevattana',
+    subtitle: 'Original Thai-Königs-Massage • Meister-Methode',
     description: 'Die seltene Benja Phakhi Königs-Massage vereint 5 traditionelle Heilkünste: Wat Po Thaimassage, gezielte Akupressur, japanisches Shiatsu und chinesisches Tuina. Ausgebildet an der THAIBOOST Akademie.',
     benefits: [
       'Ganzheitlicher Ausgleich der 12 Meridiane',
@@ -714,7 +714,7 @@ export default function App() {
                         className="w-full py-3.5 rounded-2xl text-sm sm:text-base font-semibold text-dark-900 bg-gradient-to-r from-brand-300 via-brand-400 to-brand-500 hover:from-brand-400 hover:to-brand-600 transition-all shadow-lg shadow-brand-400/20 hover:shadow-brand-400/35 hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-2.5"
                       >
                         <Calendar className="w-4.5 h-4.5" />
-                        <span>Jetzt für {treatment.name} Termin Anfragen</span>
+                        <span>Jetzt Wunschtermin Online Anfragen</span>
                         <ChevronRight className="w-4.5 h-4.5" />
                       </button>
                     </div>
