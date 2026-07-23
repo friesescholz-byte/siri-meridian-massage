@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Sparkles,
@@ -206,6 +206,15 @@ export default function App() {
   const [datenschutzOpen, setDatenschutzOpen] = useState(false);
   const [bookingSuccess, setBookingSuccess] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const filteredTreatments = selectedCategory === 'all' 
     ? TREATMENTS 
@@ -236,12 +245,18 @@ export default function App() {
       <div className="fixed bottom-0 right-1/4 w-[550px] h-[550px] bg-brand-400/10 rounded-full blur-[150px] pointer-events-none -z-10" />
 
       {/* HEADER / NAVIGATION */}
-      <header className="sticky top-0 z-40 w-full backdrop-blur-xl bg-dark-900/90 border-b border-brand-400/20 transition-all">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-24 flex items-center justify-between">
+      <header
+        className={`sticky top-0 z-50 w-full transition-all duration-300 ${
+          isScrolled
+            ? 'bg-dark-900/95 backdrop-blur-md border-b border-brand-400/30 shadow-2xl shadow-black/70 py-3'
+            : 'bg-dark-900/80 backdrop-blur-sm border-b border-white/10 py-5'
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
           
           {/* OFFICIAL LOGO */}
-          <a href="#" className="flex items-center gap-3.5 group shrink-0">
-            <div className="w-14 h-14 rounded-full overflow-hidden border border-brand-400/40 shadow-lg shadow-brand-400/15 group-hover:scale-105 transition-transform bg-emerald-950 flex items-center justify-center p-0.5 shrink-0">
+          <a href="#" className="flex items-center gap-3 group shrink-0">
+            <div className={`rounded-full overflow-hidden border border-brand-400/40 shadow-lg shadow-brand-400/15 group-hover:scale-105 transition-all bg-emerald-950 flex items-center justify-center p-0.5 shrink-0 ${isScrolled ? 'w-11 h-11' : 'w-13 h-13'}`}>
               <img
                 src={IMAGES.logo}
                 alt="Siri Meridian Massage Logo"
@@ -249,40 +264,40 @@ export default function App() {
               />
             </div>
             <div className="flex flex-col">
-              <span className="font-serif text-2xl sm:text-3xl font-bold tracking-wide text-white group-hover:text-brand-300 transition-colors leading-tight">
+              <span className="font-serif text-xl sm:text-2xl font-bold tracking-wide text-white group-hover:text-brand-300 transition-colors leading-none whitespace-nowrap">
                 SIRI <span className="font-light italic text-brand-400">Meridian</span>
               </span>
-              <span className="text-[11px] tracking-[0.18em] uppercase text-slate-300 font-medium">
+              <span className="text-[10px] sm:text-[11px] tracking-[0.16em] uppercase text-slate-300 font-medium whitespace-nowrap mt-1">
                 Thai & Meridian Massage Nienburg
               </span>
             </div>
           </a>
 
           {/* DESKTOP NAV LINKS */}
-          <nav className="hidden lg:flex items-center gap-8 text-base font-medium text-slate-200">
-            <a href="#uber-mich" className="hover:text-brand-400 transition-colors">Über Siriwan</a>
-            <a href="#behandlungen" className="hover:text-brand-400 transition-colors">Preis & Leistungen</a>
-            <a href="#gutscheine" className="hover:text-brand-400 transition-colors flex items-center gap-1.5 text-brand-300">
+          <nav className="hidden xl:flex items-center gap-6 xl:gap-8 text-sm sm:text-base font-medium text-slate-200">
+            <a href="#uber-mich" className="hover:text-brand-300 transition-colors whitespace-nowrap py-1">Über Siriwan</a>
+            <a href="#behandlungen" className="hover:text-brand-300 transition-colors whitespace-nowrap py-1">Preis & Leistungen</a>
+            <a href="#gutscheine" className="hover:text-brand-300 transition-colors flex items-center gap-1.5 text-brand-300 whitespace-nowrap py-1">
               <Gift className="w-4 h-4" /> Gutscheine
             </a>
-            <a href="#faq" className="hover:text-brand-400 transition-colors">FAQ</a>
-            <a href="#kontakt" className="hover:text-brand-400 transition-colors">Kontakt</a>
+            <a href="#faq" className="hover:text-brand-300 transition-colors whitespace-nowrap py-1">FAQ</a>
+            <a href="#kontakt" className="hover:text-brand-300 transition-colors whitespace-nowrap py-1">Kontakt</a>
           </nav>
 
           {/* RIGHT ACTION BUTTONS */}
-          <div className="hidden lg:flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-3 shrink-0">
             <a
               href={CONTACT.phoneTel}
-              className="flex items-center gap-2 text-sm font-semibold text-slate-200 hover:text-brand-400 transition-colors px-4 py-2.5 rounded-xl bg-white/5 border border-white/10"
+              className="flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-200 hover:text-brand-300 transition-colors px-3.5 py-2.5 rounded-xl bg-white/5 border border-white/10 whitespace-nowrap"
             >
-              <Phone className="w-4 h-4 text-brand-400" />
+              <Phone className="w-4 h-4 text-brand-400 shrink-0" />
               <span>{CONTACT.phoneDisplay}</span>
             </a>
             <button
               onClick={() => handleOpenBooking()}
-              className="relative inline-flex items-center gap-2.5 px-6 py-3 rounded-full text-base font-semibold text-dark-900 bg-gradient-to-r from-brand-300 via-brand-400 to-brand-500 hover:from-brand-400 hover:to-brand-600 transition-all shadow-lg shadow-brand-400/25 hover:shadow-brand-400/35 hover:scale-[1.02] active:scale-[0.98]"
+              className="relative inline-flex items-center gap-2 px-5 py-2.5 sm:px-6 sm:py-2.5 rounded-full text-sm sm:text-base font-semibold text-dark-900 bg-gradient-to-r from-brand-300 via-brand-400 to-brand-500 hover:from-brand-400 hover:to-brand-600 transition-all shadow-md shadow-brand-400/25 hover:shadow-brand-400/35 hover:scale-[1.02] active:scale-[0.98] whitespace-nowrap"
             >
-              <Calendar className="w-4.5 h-4.5" />
+              <Calendar className="w-4 h-4" />
               <span>Termin Buchen</span>
             </button>
           </div>
@@ -290,10 +305,10 @@ export default function App() {
           {/* MOBILE MENU TOGGLE */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2.5 rounded-xl bg-white/5 border border-white/10 text-slate-200 hover:text-white"
+            className="xl:hidden p-2.5 rounded-xl bg-white/5 border border-white/10 text-slate-200 hover:text-white shrink-0"
             aria-label="Menü öffnen"
           >
-            {mobileMenuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
       </header>
@@ -305,7 +320,7 @@ export default function App() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden z-30 bg-dark-800 border-b border-white/10 px-6 py-6 space-y-4"
+            className="xl:hidden z-30 bg-dark-800 border-b border-white/10 px-6 py-6 space-y-4 shadow-2xl"
           >
             <nav className="flex flex-col gap-4 text-lg font-medium text-slate-200">
               <a href="#uber-mich" onClick={() => setMobileMenuOpen(false)} className="py-1 hover:text-brand-400">
