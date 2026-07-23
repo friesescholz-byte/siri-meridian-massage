@@ -464,7 +464,7 @@ export default function App() {
       {/* ÜBER MICH & SIRIWAN POESSEL STORY */}
       <section id="uber-mich" className="py-24 bg-dark-800/50 relative border-y border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
             {/* LEFT CERTIFICATE & PHOTO SHOWCASE */}
             <motion.div 
@@ -474,73 +474,111 @@ export default function App() {
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
             >
-              <div className="relative rounded-3xl overflow-hidden border border-brand-400/30 shadow-2xl bg-dark-900 aspect-[4/3] group">
+              {/* TOP CARD: CERTIFICATE HANDOVER PHOTO */}
+              <div className="relative rounded-3xl overflow-hidden border border-brand-400/35 shadow-2xl bg-dark-900 aspect-[16/10] group">
                 <img
                   src={IMAGES.certificateSutep}
                   alt="Siriwan Pössel mit Lehrer Sutep Mevattana bei der Zertifikatsübergabe"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-dark-900 via-transparent to-transparent opacity-60" />
-                <div className="absolute bottom-4 left-4 right-4 p-4 rounded-xl glass-panel text-sm text-slate-200">
-                  <span className="font-bold text-brand-300 block mb-0.5">Zertifikat der THAIBOOST Akademie</span>
-                  Siriwan Pössel mit Meister Sutep Mevattana bei der Übergabe des „Certificate of Excellence“.
+                <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/20 to-transparent opacity-85" />
+                <div className="absolute bottom-5 left-5 right-5 p-4 rounded-2xl glass-panel border border-brand-400/30 text-slate-200">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-emerald-950 border border-brand-400/40 flex items-center justify-center text-brand-300 shrink-0">
+                      <Award className="w-5 h-5 text-brand-400" />
+                    </div>
+                    <div>
+                      <h4 className="font-serif text-base font-bold text-white leading-tight">
+                        Zertifizierte THAIBOOST Akademie
+                      </h4>
+                      <p className="text-xs text-slate-300 font-light mt-0.5">
+                        Siriwan Pössel & Meister Sutep Mevattana bei der Zertifikatsübergabe.
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              {/* Meridian Model Details Image */}
-              <div className="grid grid-cols-2 gap-4">
-                <div className="rounded-2xl overflow-hidden border border-white/10 aspect-square bg-dark-900">
-                  <img
-                    src={IMAGES.meridianModel}
-                    alt="Meridian Modell und dtv-Atlas Akupunktur"
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <div className="p-5 rounded-2xl glass-card border border-white/5 flex flex-col justify-center space-y-2">
-                  <div className="text-xs uppercase tracking-wider text-brand-400 font-bold">12 Hauptmeridiane</div>
-                  <p className="text-xs text-slate-300 font-light leading-relaxed">
-                    Achtsame Arbeit entlang der Energielinien zur nachhaltigen Lösung von Verspannungen.
-                  </p>
+              {/* BOTTOM CARD: UNIFIED 12 HAUPTMERIDIANE FEATURE SHOWCASE */}
+              <div className="p-5 sm:p-6 rounded-3xl glass-panel border border-brand-400/30 shadow-xl bg-gradient-to-br from-emerald-950/40 via-dark-800 to-dark-900 group">
+                <div className="flex flex-col sm:flex-row items-center gap-5">
+                  <div className="w-full sm:w-36 h-40 rounded-2xl overflow-hidden border border-brand-400/30 shadow-md shrink-0 bg-dark-900">
+                    <img
+                      src={IMAGES.meridianModel}
+                      alt="Meridian Modell und dtv-Atlas Akupunktur"
+                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                  <div className="space-y-2.5 text-center sm:text-left flex-1">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider">
+                      <Compass className="w-3.5 h-3.5" />
+                      <span>Energielinien & Balance</span>
+                    </div>
+                    <h3 className="font-serif text-xl sm:text-2xl font-bold text-white">
+                      Die 12 Hauptmeridiane
+                    </h3>
+                    <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">
+                      Achtsame Arbeit entlang der Sen-Linien zur gezielten Lösung tiefsitzender energetischer und muskulärer Verspannungen.
+                    </p>
+                    <div className="pt-1 flex flex-wrap items-center justify-center sm:justify-start gap-2 text-[11px] font-medium text-brand-300">
+                      <span className="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10">✦ Wat Po Tradition</span>
+                      <span className="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10">✦ Shiatsu & Tuina</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </motion.div>
 
             {/* RIGHT SIRIWAN TEXT CONTENT */}
             <motion.div 
-              className="lg:col-span-6 space-y-6"
+              className="lg:col-span-6 space-y-7"
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
             >
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-400/10 border border-brand-400/20 text-brand-300 text-xs font-bold uppercase tracking-wider">
-                Über mich
+              <div className="inline-flex items-center gap-2.5 px-4.5 py-2 rounded-full bg-brand-400/10 border border-brand-400/30 text-brand-300 text-xs font-bold uppercase tracking-wider">
+                <Sparkles className="w-3.5 h-3.5 text-brand-400" />
+                <span>Über Siriwan Pössel</span>
               </div>
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
-                Mit Herz, Achtsamkeit & <span className="text-gold-gradient italic font-normal">traditionellem Wissen</span>
+
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-[1.2]">
+                Mit Herz, Achtsamkeit & <br />
+                <span className="text-gold-gradient italic font-normal">traditionellem Wissen</span>
               </h2>
 
-              <p className="text-slate-200 text-base sm:text-lg leading-relaxed font-light">
-                Mein Name ist <strong>Siriwan Pössel</strong>. Früher arbeitete ich als Pflegehelferin und habe mit großer Freude und Hingabe ältere Menschen betreut. Ich bin glücklich, wenn ich anderen Menschen helfen und zu ihrem Wohlbefinden beitragen kann.
-              </p>
-
-              <p className="text-slate-200 text-base sm:text-lg leading-relaxed font-light">
-                Da ich selbst großen Wert auf Gesundheit und innere Balance lege, wuchs in mir der Wunsch, Menschen auf eine ganzheitliche Weise zu unterstützen. So begann ich meine Ausbildung in Thaimassage in den Niederlanden – und entdeckte meine Leidenschaft, Körper und Geist durch achtsame Berührung in Einklang zu bringen.
-              </p>
-
-              <div className="p-6 rounded-2xl glass-panel border border-brand-400/30 space-y-3">
-                <div className="flex items-center gap-2.5 text-brand-300 font-serif font-bold text-xl">
-                  <Award className="w-6 h-6 text-brand-400" />
-                  <span>Die Nuad Thai Benja Phakhi Methode</span>
-                </div>
-                <p className="text-sm text-slate-200 leading-relaxed font-light">
-                  Ich habe meine Weiterbildung an der <strong>THAIBOOST Akademie</strong> in den Niederlanden unter der persönlichen Leitung von Herrn <strong>Sutep Mevattana</strong> absolviert. Diese Technik – bekannt als die originale <strong>Thai-Königs-Massage</strong> – verbindet Elemente aus der Wat Po Thai-Massage, gezielter Akupressur, japanischem Shiatsu und chinesischem Tuina.
+              <div className="space-y-4 text-slate-200 text-base sm:text-lg leading-relaxed font-light">
+                <p>
+                  Mein Name ist <strong className="font-semibold text-white">Siriwan Pössel</strong>. Früher arbeitete ich als Pflegehelferin und habe mit großer Freude und Hingabe ältere Menschen betreut. Ich bin glücklich, wenn ich anderen Menschen helfen und zu ihrem Wohlbefinden beitragen kann.
+                </p>
+                <p>
+                  Da ich selbst großen Wert auf Gesundheit und innere Balance lege, wuchs in mir der Wunsch, Menschen auf eine ganzheitliche Weise zu unterstützen. So begann ich meine Ausbildung in Thaimassage in den Niederlanden – und entdeckte meine Leidenschaft, Körper und Geist durch achtsame Berührung in Einklang zu bringen.
                 </p>
               </div>
 
-              <blockquote className="pl-4 border-l-2 border-brand-400 italic text-slate-200 text-base font-light">
-                „Jede Massage ist für mich eine Herzensarbeit – eine Einladung, loszulassen, aufzutanken und sich wieder mit der eigenen Lebensenergie zu verbinden.“
-                <span className="block font-normal text-white not-italic mt-1.5 text-sm">– Siriwan Pössel</span>
+              {/* BENJA PHAKHI METHOD CARD */}
+              <div className="p-6 rounded-2xl bg-gradient-to-r from-emerald-950/60 via-dark-800 to-dark-800 border-l-4 border-brand-400 border-y border-r border-brand-400/25 space-y-3 shadow-lg">
+                <div className="flex items-center gap-3 text-brand-300 font-serif font-bold text-xl">
+                  <div className="w-9 h-9 rounded-xl bg-brand-400/15 border border-brand-400/30 flex items-center justify-center text-brand-400 shrink-0">
+                    <Award className="w-5 h-5" />
+                  </div>
+                  <span>Die Nuad Thai Benja Phakhi Methode</span>
+                </div>
+                <p className="text-sm sm:text-base text-slate-200 leading-relaxed font-light">
+                  Ich habe meine Weiterbildung an der <strong className="font-semibold text-white">THAIBOOST Akademie</strong> unter der persönlichen Leitung von Meister <strong className="font-semibold text-white">Sutep Mevattana</strong> absolviert. Diese originale <strong className="font-semibold text-white">Thai-Königs-Massage</strong> vereint 5 ostasiatische Heilmethoden: Wat Po Thaimassage, Akupressur, Shiatsu und Tuina.
+                </p>
+              </div>
+
+              {/* QUOTE BLOCK */}
+              <blockquote className="relative p-6 rounded-2xl glass-card border border-white/10 space-y-2">
+                <p className="italic text-slate-200 text-base sm:text-lg font-light leading-relaxed">
+                  „Jede Massage ist für mich eine Herzensarbeit – eine Einladung, loszulassen, aufzutanken und sich wieder mit der eigenen Lebensenergie zu verbinden.“
+                </p>
+                <footer className="font-medium text-brand-300 text-sm flex items-center gap-2 pt-1">
+                  <div className="w-2 h-2 rounded-full bg-brand-400" />
+                  <span>Siriwan Pössel</span>
+                  <span className="text-slate-400 font-light text-xs">• Inhaberin & Meridian-Therapeutin</span>
+                </footer>
               </blockquote>
             </motion.div>
 
