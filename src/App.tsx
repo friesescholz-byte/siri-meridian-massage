@@ -240,8 +240,8 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-24 flex items-center justify-between">
           
           {/* OFFICIAL LOGO */}
-          <a href="#" className="flex items-center gap-3.5 group">
-            <div className="w-14 h-14 rounded-full overflow-hidden border border-brand-400/40 shadow-lg shadow-brand-400/15 group-hover:scale-105 transition-transform bg-emerald-950 flex items-center justify-center p-0.5">
+          <a href="#" className="flex items-center gap-3.5 group shrink-0">
+            <div className="w-14 h-14 rounded-full overflow-hidden border border-brand-400/40 shadow-lg shadow-brand-400/15 group-hover:scale-105 transition-transform bg-emerald-950 flex items-center justify-center p-0.5 shrink-0">
               <img
                 src={IMAGES.logo}
                 alt="Siri Meridian Massage Logo"
@@ -249,10 +249,10 @@ export default function App() {
               />
             </div>
             <div className="flex flex-col">
-              <span className="font-serif text-2xl sm:text-3xl font-bold tracking-wide text-white group-hover:text-brand-300 transition-colors">
+              <span className="font-serif text-2xl sm:text-3xl font-bold tracking-wide text-white group-hover:text-brand-300 transition-colors leading-tight">
                 SIRI <span className="font-light italic text-brand-400">Meridian</span>
               </span>
-              <span className="text-xs tracking-[0.18em] uppercase text-slate-300 font-medium">
+              <span className="text-[11px] tracking-[0.18em] uppercase text-slate-300 font-medium">
                 Thai & Meridian Massage Nienburg
               </span>
             </div>
@@ -352,9 +352,9 @@ export default function App() {
               animate="visible"
             >
               {/* EYEBROW */}
-              <motion.div variants={fadeUp} className="inline-flex items-center gap-2.5 px-4.5 py-2 rounded-full bg-emerald-950/80 border border-brand-400/40 text-brand-300 text-sm sm:text-base font-medium tracking-wide shadow-md">
-                <Sparkles className="w-4 h-4 text-brand-400" />
-                <span>Siri Meridian Massage • {CONTACT.zipCity}</span>
+              <motion.div variants={fadeUp} className="inline-flex items-center gap-3 px-6 py-2.5 rounded-full bg-gradient-to-r from-emerald-950/90 via-dark-800 to-emerald-950/90 border border-brand-400/40 text-brand-300 text-sm sm:text-base font-medium tracking-wide shadow-lg backdrop-blur-md">
+                <Sparkles className="w-4 h-4 text-brand-400 shrink-0" />
+                <span className="whitespace-nowrap">Siri Meridian Massage • {CONTACT.zipCity}</span>
               </motion.div>
 
               {/* HEADLINE */}
@@ -371,7 +371,7 @@ export default function App() {
                 variants={fadeUp}
                 className="text-slate-200 text-lg sm:text-xl max-w-2xl leading-relaxed font-light mx-auto lg:mx-0"
               >
-                Willkommen bei Siriwan Pössel in Nienburg. Erleben Sie in harmonischer Atmosphäre die **Nuad Thai Benja Phakhi Methode** (originale Thai-Königs-Massage) sowie gezielte **Thai Solution & Ruudsen Massagen** zur vollkommenen Regeneration der 12 Meridiane.
+                Willkommen bei Siriwan Pössel in Nienburg. Erleben Sie in harmonischer Atmosphäre die <strong className="font-semibold text-white">Nuad Thai Benja Phakhi Methode</strong> (originale Thai-Königs-Massage) sowie gezielte <strong className="font-semibold text-white">Thai Solution & Ruudsen Massagen</strong> zur vollkommenen Regeneration der 12 Meridiane.
               </motion.p>
 
               {/* CTA GROUP */}
@@ -438,21 +438,6 @@ export default function App() {
                     </div>
                   </div>
                 </div>
-
-                {/* Floating Badge Left */}
-                <motion.div 
-                  className="absolute -top-6 -left-6 p-4 rounded-2xl glass-card border border-brand-400/30 hidden sm:flex items-center gap-3.5 shadow-xl backdrop-blur-md"
-                  animate={{ y: [0, -8, 0] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                >
-                  <div className="w-11 h-11 rounded-xl bg-emerald-500/20 flex items-center justify-center text-emerald-400 shrink-0">
-                    <ShieldCheck className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <div className="text-sm font-bold text-white">Zertifikat Sutep Mevattana</div>
-                    <div className="text-xs text-slate-300">Benja Phakhi Meister-Abschluss</div>
-                  </div>
-                </motion.div>
 
               </div>
             </motion.div>
