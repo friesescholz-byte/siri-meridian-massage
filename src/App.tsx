@@ -238,7 +238,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col relative overflow-x-hidden selection:bg-brand-400 selection:text-dark-900">
+    <div className="min-h-screen flex flex-col relative selection:bg-brand-400 selection:text-dark-900">
       
       {/* BACKGROUND DECORATIVE GLOWS WITH DEEP EMERALD & GOLD ACCENTS */}
       <div className="fixed top-0 left-1/4 w-[650px] h-[650px] bg-emerald-700/10 rounded-full blur-[150px] pointer-events-none -z-10" />
@@ -248,15 +248,15 @@ export default function App() {
       <header
         className={`sticky top-0 z-50 w-full transition-all duration-300 ${
           isScrolled
-            ? 'bg-dark-900/95 backdrop-blur-md border-b border-brand-400/30 shadow-2xl shadow-black/70 py-3'
-            : 'bg-dark-900/80 backdrop-blur-sm border-b border-white/10 py-5'
+            ? 'bg-dark-900/95 backdrop-blur-md border-b border-brand-400/30 shadow-2xl shadow-black/80 py-2.5'
+            : 'bg-dark-900/90 backdrop-blur-md border-b border-white/10 py-4'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
           
           {/* OFFICIAL LOGO */}
           <a href="#" className="flex items-center gap-3 group shrink-0">
-            <div className={`rounded-full overflow-hidden border border-brand-400/40 shadow-lg shadow-brand-400/15 group-hover:scale-105 transition-all bg-emerald-950 flex items-center justify-center p-0.5 shrink-0 ${isScrolled ? 'w-11 h-11' : 'w-13 h-13'}`}>
+            <div className={`rounded-full overflow-hidden border border-brand-400/40 shadow-lg shadow-brand-400/15 group-hover:scale-105 transition-all bg-emerald-950 flex items-center justify-center p-0.5 shrink-0 ${isScrolled ? 'w-10 h-10 sm:w-11 sm:h-11' : 'w-12 h-12 sm:w-14 sm:h-14'}`}>
               <img
                 src={IMAGES.logo}
                 alt="Siri Meridian Massage Logo"
