@@ -41,6 +41,10 @@ const IMAGES = {
   roomSecondary: `${R2_BASE}/1434-YBgjwG6pBGSaJWED_ergebnis.webp`,
   roomPanorama: `${R2_BASE}/asset-54-mv0PbwEkVoiLOGkR_ergebnis.webp`,
   voucher: `${R2_BASE}/gutschein-vor-YKb8jzOy4lu9OngO_ergebnis.webp`,
+  treatmentSolution: `${R2_BASE}/Thai%20Solution%20Massage_ergebnis.webp`,
+  treatmentRuudsen: `${R2_BASE}/Thai%20Ruudsen%20Massage_ergebnis.webp`,
+  treatmentLymph: `${R2_BASE}/Thai%20Lymphdrainage%20Massage_ergebnis.webp`,
+  treatmentBenja: `${R2_BASE}/Nuad%20Thai%20Benja%20Phakhi%20(Thai-K%C3%B6nigs-Massage)_ergebnis.webp`,
 };
 
 // Official Contact Details
@@ -109,7 +113,7 @@ const TREATMENTS: Treatment[] = [
       { minutes: 90, price: 95 },
       { minutes: 120, price: 125 }
     ],
-    image: IMAGES.roomMain,
+    image: IMAGES.treatmentSolution,
     tag: 'Empfohlen bei Schmerzen',
     icon: Sparkles
   },
@@ -129,7 +133,7 @@ const TREATMENTS: Treatment[] = [
       { minutes: 90, price: 89 },
       { minutes: 120, price: 119 }
     ],
-    image: IMAGES.roomSecondary,
+    image: IMAGES.treatmentRuudsen,
     tag: 'Bestseller',
     icon: Feather
   },
@@ -148,7 +152,7 @@ const TREATMENTS: Treatment[] = [
       { minutes: 60, price: 72 },
       { minutes: 90, price: 99 }
     ],
-    image: IMAGES.roomPanorama,
+    image: IMAGES.treatmentLymph,
     icon: Droplet
   },
   {
@@ -166,7 +170,7 @@ const TREATMENTS: Treatment[] = [
       { minutes: 90, price: 105 },
       { minutes: 120, price: 135 }
     ],
-    image: IMAGES.meridianModel,
+    image: IMAGES.treatmentBenja,
     tag: 'Meisterklasse',
     icon: Award
   }
@@ -625,8 +629,8 @@ export default function App() {
             ))}
           </div>
 
-          {/* TREATMENTS CARDS */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* TREATMENTS CARDS GRID */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
             {filteredTreatments.map((treatment) => {
               const IconComp = treatment.icon;
               return (
@@ -635,62 +639,84 @@ export default function App() {
                   layout
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="rounded-3xl glass-card overflow-hidden flex flex-col justify-between group border border-white/5 hover:border-brand-400/40 transition-all duration-300"
+                  className="rounded-3xl glass-card overflow-hidden flex flex-col justify-between group border border-brand-400/20 hover:border-brand-400/50 transition-all duration-500 shadow-xl hover:shadow-2xl hover:shadow-brand-400/10"
                 >
-                  <div className="grid grid-cols-1 sm:grid-cols-12">
-                    <div className="sm:col-span-5 h-56 sm:h-auto relative bg-dark-900 overflow-hidden">
-                      <img
-                        src={treatment.image}
-                        alt={treatment.name}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                      {treatment.tag && (
-                        <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-brand-400 text-dark-900 font-bold text-xs shadow-md">
+                  {/* CARD TOP LANDSCAPE HEADER BANNER */}
+                  <div className="h-56 sm:h-64 relative overflow-hidden bg-dark-900">
+                    <img
+                      src={treatment.image}
+                      alt={treatment.name}
+                      className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700 ease-out"
+                    />
+                    {/* GRADIENT OVERLAY */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-dark-900 via-dark-900/40 to-transparent" />
+
+                    {/* TOP BADGES */}
+                    <div className="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none">
+                      {treatment.tag ? (
+                        <span className="px-3.5 py-1.5 rounded-full bg-gradient-to-r from-brand-400 to-brand-500 text-dark-900 font-bold text-xs shadow-lg uppercase tracking-wider">
                           {treatment.tag}
-                        </div>
+                        </span>
+                      ) : (
+                        <div />
                       )}
+                      <div className="w-10 h-10 rounded-full glass-panel border border-brand-400/30 flex items-center justify-center text-brand-300 shadow-md">
+                        <IconComp className="w-5 h-5 text-brand-400" />
+                      </div>
                     </div>
 
-                    <div className="sm:col-span-7 p-6 space-y-4 flex flex-col justify-between">
-                      <div>
-                        <div className="flex items-center gap-2 mb-1.5">
-                          <IconComp className="w-4 h-4 text-brand-400" />
-                          <span className="text-xs font-bold uppercase text-brand-300 tracking-wider">{treatment.subtitle}</span>
-                        </div>
-                        <h3 className="font-serif text-xl sm:text-2xl font-bold text-white group-hover:text-brand-300 transition-colors">
-                          {treatment.name}
-                        </h3>
-                        <p className="text-slate-300 text-sm leading-relaxed font-light mt-2">
-                          {treatment.description}
-                        </p>
-                      </div>
+                    {/* TITLE OVERLAY AT BOTTOM OF BANNER */}
+                    <div className="absolute bottom-4 left-6 right-6 space-y-1">
+                      <span className="text-xs font-bold uppercase text-brand-300 tracking-wider block">
+                        {treatment.subtitle}
+                      </span>
+                      <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white group-hover:text-brand-300 transition-colors drop-shadow-md">
+                        {treatment.name}
+                      </h3>
+                    </div>
+                  </div>
 
-                      <div className="space-y-1.5 pt-2 border-t border-white/5">
-                        {treatment.benefits.map((b, idx) => (
-                          <div key={idx} className="flex items-center gap-2 text-xs sm:text-sm text-slate-200">
-                            <Check className="w-4 h-4 text-brand-400 shrink-0" />
-                            <span>{b}</span>
+                  {/* CARD BODY */}
+                  <div className="p-6 sm:p-7 space-y-6 flex-1 flex flex-col justify-between">
+                    <p className="text-slate-300 text-sm sm:text-base leading-relaxed font-light">
+                      {treatment.description}
+                    </p>
+
+                    {/* BENEFITS LIST */}
+                    <div className="space-y-2.5 py-3 border-y border-white/10">
+                      {treatment.benefits.map((b, idx) => (
+                        <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-200">
+                          <CheckCircle2 className="w-4.5 h-4.5 text-brand-400 shrink-0 mt-0.5" />
+                          <span className="font-light">{b}</span>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* DURATIONS & PRICES FOOTER */}
+                    <div className="pt-2 space-y-4">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span className="text-xs text-slate-400 font-medium mr-1">Dauer & Tarif:</span>
+                        {treatment.durations.map((d, i) => (
+                          <div
+                            key={i}
+                            className="px-3 py-1.5 rounded-xl bg-emerald-950/60 border border-brand-400/30 flex items-center gap-2 text-xs sm:text-sm font-semibold"
+                          >
+                            <Clock className="w-3.5 h-3.5 text-brand-400" />
+                            <span className="text-slate-200">{d.minutes} Min</span>
+                            <span className="text-brand-300 font-bold ml-1">{d.price} €</span>
                           </div>
                         ))}
                       </div>
 
-                      <div className="pt-3 flex items-center justify-between gap-2 border-t border-white/5">
-                        <div className="flex items-center gap-2">
-                          {treatment.durations.map((d, i) => (
-                            <div key={i} className="px-2.5 py-1 rounded-lg bg-white/5 border border-white/5 text-center">
-                              <div className="text-xs text-slate-300">{d.minutes}m</div>
-                              <div className="text-sm font-bold text-brand-300">{d.price}€</div>
-                            </div>
-                          ))}
-                        </div>
-                        <button
-                          onClick={() => handleOpenBooking(treatment)}
-                          className="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-dark-900 bg-brand-400 hover:bg-brand-300 transition-colors shadow-md flex items-center gap-1.5"
-                        >
-                          <Calendar className="w-4 h-4" />
-                          <span>Buchen</span>
-                        </button>
-                      </div>
+                      {/* BOOKING BUTTON */}
+                      <button
+                        onClick={() => handleOpenBooking(treatment)}
+                        className="w-full py-3.5 rounded-2xl text-sm sm:text-base font-semibold text-dark-900 bg-gradient-to-r from-brand-300 via-brand-400 to-brand-500 hover:from-brand-400 hover:to-brand-600 transition-all shadow-lg shadow-brand-400/20 hover:shadow-brand-400/35 hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-2.5"
+                      >
+                        <Calendar className="w-4.5 h-4.5" />
+                        <span>Jetzt für {treatment.name} Termin Anfragen</span>
+                        <ChevronRight className="w-4.5 h-4.5" />
+                      </button>
                     </div>
                   </div>
                 </motion.div>
