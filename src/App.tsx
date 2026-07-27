@@ -507,14 +507,14 @@ export default function App() {
               {/* BOTTOM CARD: UNIFIED 12 HAUPTMERIDIANE FEATURE SHOWCASE */}
               <div className="p-6 sm:p-7 rounded-3xl glass-panel border border-brand-400/35 shadow-2xl bg-gradient-to-br from-emerald-950/50 via-dark-800 to-dark-900 group">
                 <div className="flex flex-col sm:flex-row items-center gap-6">
-                  <div className="w-full sm:w-52 md:w-60 h-64 sm:h-72 rounded-2xl overflow-hidden border border-brand-400/40 shadow-xl shrink-0 bg-dark-900 relative">
+                  <div className="w-full sm:w-56 md:w-64 h-72 sm:h-80 rounded-2xl overflow-hidden border border-brand-400/40 shadow-xl shrink-0 bg-dark-950 relative flex items-center justify-center p-2">
                     <img
                       src={IMAGES.meridianModel}
                       alt="Meridian Modell und dtv-Atlas Akupunktur"
-                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                      className="w-full h-full object-contain object-center group-hover:scale-105 transition-transform duration-700"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-dark-950/80 via-transparent to-transparent opacity-90" />
-                    <div className="absolute bottom-3 left-3 right-3 text-center">
+                    <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-dark-950 via-dark-950/70 to-transparent pointer-events-none" />
+                    <div className="absolute bottom-3 left-2 right-2 text-center">
                       <span className="px-3 py-1 rounded-full bg-dark-900/90 border border-brand-400/30 text-xs text-brand-300 font-medium backdrop-blur-md">
                         Anatomisches Meridian-Modell
                       </span>
@@ -863,173 +863,225 @@ export default function App() {
                       className="px-6 pb-6 text-slate-200 text-base font-light leading-relaxed border-t border-white/5 pt-4"
                     >
                       {faq.answer}
-                    </motion.div>
+</motion.div>
                   )}
                 </AnimatePresence>
               </div>
             ))}
           </div>
-
         </div>
       </section>
 
-      {/* LOCATION & STUDIO PHOTO SHOWCASE WITH EXACT ADDRESS & IMAGE */}
-      <section id="kontakt" className="py-24 bg-dark-800/50 relative border-t border-white/5">
+      {/* CONTACT & LOCATION SECTION */}
+      <section id="kontakt" className="py-24 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-stretch">
             
-            {/* LEFT CONTACT INFO WITH REAL STUDIO IMAGE */}
-            <div className="lg:col-span-5 space-y-8">
-              <div>
-                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-400/10 border border-brand-400/20 text-brand-300 text-xs font-bold uppercase tracking-wider mb-4">
-                  Kontakt & Anfahrt
+            {/* LEFT CONTACT INFO & STUDIO SHOWCASE */}
+            <div className="lg:col-span-5 flex flex-col justify-between space-y-8">
+              <div className="space-y-4">
+                <div className="inline-flex items-center gap-2.5 px-4.5 py-2 rounded-full bg-brand-400/10 border border-brand-400/30 text-brand-300 text-xs font-bold uppercase tracking-wider">
+                  <MapPin className="w-3.5 h-3.5 text-brand-400" />
+                  <span>Studio & Kontakt</span>
                 </div>
-                <h2 className="font-serif text-3xl sm:text-4xl font-bold text-white">
-                  Besuchen Sie unser <span className="text-gold-gradient italic font-normal">Studio in Nienburg</span>
+                <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
+                  Besuchen Sie unser <br />
+                  <span className="text-gold-gradient italic font-normal">Studio in Nienburg</span>
                 </h2>
-                <p className="text-slate-200 text-base font-light leading-relaxed mt-2">
-                  Wir freuen uns darauf, Sie persönlich bei Siri Meridian Massage zu begrüßen.
+                <p className="text-slate-200 text-base sm:text-lg font-light leading-relaxed">
+                  Wir freuen uns darauf, Sie persönlich in unserer harmonischen Wohlfühloase bei Siri Meridian Massage begrüßen zu dürfen.
                 </p>
               </div>
 
-              {/* Real Studio Interior Image for Location Showcase */}
-              <div className="rounded-2xl overflow-hidden border border-brand-400/30 aspect-[4/3] bg-dark-900 relative group shadow-xl">
+              {/* Studio Interior Showcase Image */}
+              <div className="rounded-3xl overflow-hidden border border-brand-400/35 aspect-[16/10] bg-dark-900 relative group shadow-2xl">
                 <img
                   src={IMAGES.roomMain}
                   alt="Siri Meridian Massage Studio An der Breiten Riede 26 Nienburg"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-dark-900 via-transparent to-transparent opacity-85" />
-                <div className="absolute bottom-4 left-4 right-4 text-sm text-slate-200">
-                  <div className="font-bold text-brand-300 flex items-center gap-1.5 mb-1">
+                <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/20 to-transparent opacity-85" />
+                <div className="absolute bottom-4 left-4 right-4 p-3.5 rounded-2xl glass-panel border border-brand-400/30 text-sm text-slate-200">
+                  <div className="font-bold text-brand-300 flex items-center gap-2 text-sm">
                     <MapPin className="w-4 h-4 text-brand-400 shrink-0" />
                     <span>{CONTACT.fullAddress}</span>
                   </div>
-                  <span className="text-xs text-slate-300 block pl-5">Ruhige Wohlfühloase mit Parkplatzmöglichkeiten</span>
+                  <span className="text-xs text-slate-300 block pl-6 mt-0.5">Ruhige Wohlfühloase mit kostenfreien Kundenparkplätzen</span>
                 </div>
               </div>
 
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-2xl bg-brand-400/10 border border-brand-400/20 flex items-center justify-center text-brand-400 shrink-0">
-                    <MapPin className="w-6 h-6" />
+              {/* Contact Information Cards (2x2 Grid) */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="p-4.5 rounded-2xl glass-panel border border-white/10 space-y-1.5">
+                  <div className="flex items-center gap-2.5 text-brand-300 font-bold text-sm">
+                    <MapPin className="w-4 h-4 text-brand-400 shrink-0" />
+                    <span>Studio Adresse</span>
                   </div>
-                  <div>
-                    <h4 className="text-base font-bold text-white">Adresse</h4>
-                    <p className="text-base text-slate-200 mt-0.5">{CONTACT.street}</p>
-                    <p className="text-base text-slate-200">{CONTACT.zipCity}</p>
-                  </div>
+                  <p className="text-xs text-slate-200 leading-normal font-light">
+                    {CONTACT.street}<br />
+                    {CONTACT.zipCity}
+                  </p>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-2xl bg-brand-400/10 border border-brand-400/20 flex items-center justify-center text-brand-400 shrink-0">
-                    <Phone className="w-6 h-6" />
+                <div className="p-4.5 rounded-2xl glass-panel border border-white/10 space-y-1.5">
+                  <div className="flex items-center gap-2.5 text-brand-300 font-bold text-sm">
+                    <Phone className="w-4 h-4 text-brand-400 shrink-0" />
+                    <span>Telefon & WhatsApp</span>
                   </div>
-                  <div>
-                    <h4 className="text-base font-bold text-white">Telefon & WhatsApp</h4>
-                    <a href={CONTACT.phoneTel} className="text-base text-brand-300 font-semibold hover:underline block mt-0.5">
-                      {CONTACT.phone}
-                    </a>
-                    <span className="text-xs text-slate-300">Schnelle Terminvereinbarung per WhatsApp</span>
-                  </div>
+                  <a href={CONTACT.phoneTel} className="text-xs text-white font-semibold hover:text-brand-300 block">
+                    {CONTACT.phone}
+                  </a>
+                  <span className="text-[11px] text-slate-400 block">WhatsApp Termine möglich</span>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-2xl bg-brand-400/10 border border-brand-400/20 flex items-center justify-center text-brand-400 shrink-0">
-                    <Mail className="w-6 h-6" />
+                <div className="p-4.5 rounded-2xl glass-panel border border-white/10 space-y-1.5">
+                  <div className="flex items-center gap-2.5 text-brand-300 font-bold text-sm">
+                    <Mail className="w-4 h-4 text-brand-400 shrink-0" />
+                    <span>E-Mail-Kontakt</span>
                   </div>
-                  <div>
-                    <h4 className="text-base font-bold text-white">E-Mail</h4>
-                    <a href={`mailto:${CONTACT.email}`} className="text-base text-brand-300 hover:underline block mt-0.5">
-                      {CONTACT.email}
-                    </a>
-                  </div>
+                  <a href={`mailto:${CONTACT.email}`} className="text-xs text-slate-200 hover:text-brand-300 truncate block">
+                    {CONTACT.email}
+                  </a>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-2xl bg-brand-400/10 border border-brand-400/20 flex items-center justify-center text-brand-400 shrink-0">
-                    <Clock className="w-6 h-6" />
+                <div className="p-4.5 rounded-2xl glass-panel border border-white/10 space-y-1.5">
+                  <div className="flex items-center gap-2.5 text-brand-300 font-bold text-sm">
+                    <Clock className="w-4 h-4 text-brand-400 shrink-0" />
+                    <span>Öffnungszeiten</span>
                   </div>
-                  <div>
-                    <h4 className="text-base font-bold text-white">Öffnungszeiten</h4>
-                    <div className="text-base text-slate-200 mt-0.5 space-y-0.5">
-                      <div>Montag – Samstag: 09:00 – 19:30 Uhr</div>
-                      <div>Sonn- & Feiertage: Nach Vereinbarung</div>
-                    </div>
-                  </div>
+                  <p className="text-xs text-slate-200 leading-tight font-light">
+                    Mo – Sa: 09:00 – 19:30 Uhr<br />
+                    <span className="text-[11px] text-slate-400">So & Feiertage nach Absprache</span>
+                  </p>
                 </div>
               </div>
             </div>
 
-            {/* RIGHT APPOINTMENT REQUEST FORM */}
-            <div className="lg:col-span-7">
-              <div className="p-8 sm:p-10 rounded-3xl glass-panel border border-brand-400/20">
-                <h3 className="font-serif text-2xl font-bold text-white mb-2">Terminanfrage Senden</h3>
-                <p className="text-sm text-slate-300 mb-6">Senden Sie uns Ihren Terminwunsch – Siriwan Pössel meldet sich persönlich bei Ihnen.</p>
+            {/* RIGHT APPOINTMENT REQUEST FORM CARD */}
+            <div className="lg:col-span-7 flex flex-col">
+              <div className="p-8 sm:p-10 rounded-3xl glass-panel border border-brand-400/35 shadow-2xl bg-gradient-to-br from-emerald-950/50 via-dark-800 to-dark-900 flex-1 flex flex-col justify-between space-y-6 relative overflow-hidden">
                 
-                <form onSubmit={handleBookingSubmit} className="space-y-4">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">Ihr Name *</label>
-                      <input
-                        type="text"
-                        required
-                        placeholder="z. B. Maria Muster"
-                        className="w-full px-4 py-3.5 rounded-xl bg-dark-900/80 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-brand-400 text-base"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">Telefonnummer *</label>
-                      <input
-                        type="tel"
-                        required
-                        placeholder={CONTACT.phoneDisplay}
-                        className="w-full px-4 py-3.5 rounded-xl bg-dark-900/80 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-brand-400 text-base"
-                      />
-                    </div>
+                {/* FORM HEADER WITH EMBLEM */}
+                <div className="flex items-center gap-4 pb-4 border-b border-white/10">
+                  <div className="w-12 h-12 rounded-full overflow-hidden border border-brand-400/40 bg-emerald-950 p-0.5 shrink-0 shadow-md">
+                    <img src={IMAGES.logo} alt="Siri Meridian Logo" className="w-full h-full object-contain" />
                   </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">Wunschbehandlung</label>
-                      <select
-                        value={selectedBookingTreatmentId}
-                        onChange={(e) => setSelectedBookingTreatmentId(e.target.value)}
-                        className="w-full px-4 py-3.5 rounded-xl bg-dark-900/80 border border-white/10 text-white focus:outline-none focus:border-brand-400 text-base font-medium"
-                      >
-                        {TREATMENTS.map(t => (
-                          <option key={t.id} value={t.id}>{t.name}</option>
-                        ))}
-                      </select>
-                    </div>
-                    <div>
-                      <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">Wunschdatum & Uhrzeit</label>
-                      <input
-                        type="datetime-local"
-                        className="w-full px-4 py-3.5 rounded-xl bg-dark-900/80 border border-white/10 text-white focus:outline-none focus:border-brand-400 text-base"
-                      />
-                    </div>
-                  </div>
-
                   <div>
-                    <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">Anmerkungen oder Beschwerden</label>
-                    <textarea
-                      rows={3}
-                      placeholder="z. B. Nackenverspannungen, Allergien oder Terminwünsche..."
-                      className="w-full px-4 py-3.5 rounded-xl bg-dark-900/80 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-brand-400 text-base"
-                    />
+                    <span className="text-xs uppercase text-brand-400 font-bold tracking-wider block">Online Terminvereinbarung</span>
+                    <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white">
+                      Wunschtermin Anfragen
+                    </h3>
+                    <p className="text-xs sm:text-sm text-slate-300 font-light mt-0.5">
+                      Senden Sie Ihre Anfrage – Siriwan Pössel antwortet Ihnen persönlich in Kürze.
+                    </p>
+                  </div>
+                </div>
+                
+                {/* FORM FIELDS */}
+                <form onSubmit={handleBookingSubmit} className="space-y-4 flex-1 flex flex-col justify-between">
+                  <div className="space-y-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-xs font-semibold text-brand-300 uppercase tracking-wider mb-1.5">
+                          Ihr Name *
+                        </label>
+                        <div className="relative">
+                          <User className="w-4.5 h-4.5 text-slate-400 absolute left-4 top-4" />
+                          <input
+                            type="text"
+                            required
+                            placeholder="Vor- und Nachname"
+                            className="w-full pl-11 pr-4 py-3.5 rounded-xl bg-dark-950/80 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-brand-400 text-sm font-medium transition-colors"
+                          />
+                        </div>
+                      </div>
+                      <div>
+                        <label className="block text-xs font-semibold text-brand-300 uppercase tracking-wider mb-1.5">
+                          Telefonnummer (für Rückruf/WhatsApp) *
+                        </label>
+                        <div className="relative">
+                          <Phone className="w-4.5 h-4.5 text-slate-400 absolute left-4 top-4" />
+                          <input
+                            type="tel"
+                            required
+                            placeholder={CONTACT.phoneDisplay}
+                            className="w-full pl-11 pr-4 py-3.5 rounded-xl bg-dark-950/80 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-brand-400 text-sm font-medium transition-colors"
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div>
+                        <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
+                          Wunschbehandlung *
+                        </label>
+                        <div className="relative">
+                          <Sparkles className="w-4.5 h-4.5 text-brand-400 absolute left-4 top-4 pointer-events-none" />
+                          <select
+                            value={selectedBookingTreatmentId}
+                            onChange={(e) => setSelectedBookingTreatmentId(e.target.value)}
+                            className="w-full pl-11 pr-4 py-3.5 rounded-xl bg-dark-950/80 border border-white/10 text-white focus:outline-none focus:border-brand-400 text-sm font-medium transition-colors appearance-none cursor-pointer"
+                          >
+                            {TREATMENTS.map(t => (
+                              <option key={t.id} value={t.id}>{t.name}</option>
+                            ))}
+                          </select>
+                        </div>
+                      </div>
+                      <div>
+                        <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
+                          Wunschdatum & Uhrzeit
+                        </label>
+                        <div className="relative">
+                          <Calendar className="w-4.5 h-4.5 text-slate-400 absolute left-4 top-4 pointer-events-none" />
+                          <input
+                            type="datetime-local"
+                            className="w-full pl-11 pr-4 py-3.5 rounded-xl bg-dark-950/80 border border-white/10 text-white focus:outline-none focus:border-brand-400 text-sm font-medium transition-colors"
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-1.5">
+                        Anmerkungen oder spezifische Beschwerden
+                      </label>
+                      <textarea
+                        rows={3}
+                        placeholder="z. B. Nacken- oder Rückenverspannungen, Wunschuhrzeit oder Fragen..."
+                        className="w-full px-4 py-3.5 rounded-xl bg-dark-950/80 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-brand-400 text-sm font-medium transition-colors"
+                      />
+                    </div>
                   </div>
 
-                  <div className="pt-2">
+                  <div className="pt-4 space-y-3">
                     <button
                       type="submit"
-                      className="w-full py-4 rounded-xl font-semibold text-dark-900 bg-gradient-to-r from-brand-300 via-brand-400 to-brand-500 hover:from-brand-400 hover:to-brand-600 transition-all shadow-lg shadow-brand-400/20 text-base flex items-center justify-center gap-2"
+                      className="w-full py-4 rounded-2xl font-semibold text-dark-900 bg-gradient-to-r from-brand-300 via-brand-400 to-brand-500 hover:from-brand-400 hover:to-brand-600 transition-all shadow-xl shadow-brand-400/25 text-base flex items-center justify-center gap-2.5 hover:scale-[1.01] active:scale-[0.99]"
                     >
                       <Send className="w-5 h-5" />
-                      <span>Terminanfrage Absenden</span>
+                      <span>Terminanfrage Jetzt Verbindlich Absenden</span>
                     </button>
+
+                    {/* TRUST GUARANTEES */}
+                    <div className="pt-2 flex flex-wrap items-center justify-center gap-4 text-xs text-slate-300 font-light">
+                      <div className="flex items-center gap-1.5">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-brand-400" />
+                        <span>Schnelle Rückmeldung</span>
+                      </div>
+                      <div className="flex items-center gap-1.5">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-brand-400" />
+                        <span>Keine Vorkasse</span>
+                      </div>
+                      <div className="flex items-center gap-1.5">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-brand-400" />
+                        <span>Kostenlose Stornierung</span>
+                      </div>
+                    </div>
                   </div>
                 </form>
+
               </div>
             </div>
 
