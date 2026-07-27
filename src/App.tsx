@@ -515,12 +515,12 @@ export default function App() {
               <div className="p-6 sm:p-7 rounded-3xl glass-panel border border-brand-400/35 shadow-2xl bg-gradient-to-br from-emerald-950/50 via-dark-800 to-dark-900 group">
                 <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-7">
                   
-                  {/* Dedicated Portrait Format Image Container (Hochformat aspect-[3/4]) */}
-                  <div className="w-full sm:w-52 md:w-60 aspect-[3/4] rounded-2xl overflow-hidden border border-brand-400/40 shadow-xl shrink-0 bg-dark-950 relative">
+                  {/* Dedicated 9:16 Portrait Format Image Container */}
+                  <div className="w-full sm:w-48 md:w-56 aspect-[9/16] rounded-2xl overflow-hidden border border-brand-400/40 shadow-xl shrink-0 bg-dark-950 relative">
                     <img
                       src={IMAGES.meridianModel}
                       alt="Meridian Modell und dtv-Atlas Akupunktur"
-                      className="w-full h-full object-cover object-[center_35%] group-hover:scale-105 transition-transform duration-700"
+                      className="w-full h-full object-cover object-[center_25%] group-hover:scale-105 transition-transform duration-700"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-dark-950/90 via-transparent to-transparent opacity-85" />
                     <div className="absolute bottom-3 left-2.5 right-2.5 text-center">
