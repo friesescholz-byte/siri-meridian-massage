@@ -512,42 +512,46 @@ export default function App() {
               </div>
 
               {/* BOTTOM CARD: UNIFIED 12 HAUPTMERIDIANE FEATURE SHOWCASE */}
-              <div className="p-6 sm:p-7 rounded-3xl glass-panel border border-brand-400/35 shadow-2xl bg-gradient-to-br from-emerald-950/50 via-dark-800 to-dark-900 group space-y-5">
-                
-                {/* Full-Width Landscape Image Banner (Matches Certificate card above) */}
-                <div className="relative rounded-2xl overflow-hidden border border-brand-400/40 shadow-xl bg-dark-950 aspect-[16/10]">
-                  <img
-                    src={IMAGES.meridianModel}
-                    alt="Meridian Modell und dtv-Atlas Akupunktur"
-                    className="w-full h-full object-cover object-[center_20%] group-hover:scale-105 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-transparent to-transparent opacity-80" />
-                  <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between">
-                    <span className="px-3 py-1 rounded-full bg-dark-900/90 border border-brand-400/30 text-xs text-brand-300 font-medium backdrop-blur-md">
-                      Anatomisches Meridian-Modell & Fachliteratur
-                    </span>
+              <div className="p-6 sm:p-7 rounded-3xl glass-panel border border-brand-400/35 shadow-2xl bg-gradient-to-br from-emerald-950/50 via-dark-800 to-dark-900 group">
+                <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-7">
+                  
+                  {/* Dedicated Portrait Format Image Container (Hochformat aspect-[3/4]) */}
+                  <div className="w-full sm:w-52 md:w-60 aspect-[3/4] rounded-2xl overflow-hidden border border-brand-400/40 shadow-xl shrink-0 bg-dark-950 relative">
+                    <img
+                      src={IMAGES.meridianModel}
+                      alt="Meridian Modell und dtv-Atlas Akupunktur"
+                      className="w-full h-full object-cover object-[center_35%] group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-dark-950/90 via-transparent to-transparent opacity-85" />
+                    <div className="absolute bottom-3 left-2.5 right-2.5 text-center">
+                      <span className="px-2.5 py-1 rounded-full bg-dark-900/90 border border-brand-400/30 text-[11px] text-brand-300 font-medium backdrop-blur-md">
+                        Anatomisches Meridian-Modell
+                      </span>
+                    </div>
                   </div>
-                </div>
 
-                <div className="space-y-3">
-                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/15 border border-emerald-500/35 text-emerald-400 text-xs font-bold uppercase tracking-wider">
-                    <Compass className="w-4 h-4 text-emerald-400" />
-                    <span>Energielinien & Balance</span>
+                  {/* Text Description */}
+                  <div className="space-y-3.5 text-center sm:text-left flex-1">
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/15 border border-emerald-500/35 text-emerald-400 text-xs font-bold uppercase tracking-wider">
+                      <Compass className="w-4 h-4 text-emerald-400" />
+                      <span>Energielinien & Balance</span>
+                    </div>
+                    <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white">
+                      Die 12 Hauptmeridiane
+                    </h3>
+                    <p className="text-sm sm:text-base text-slate-200 font-light leading-relaxed">
+                      Achtsame Arbeit entlang der Sen-Linien zur gezielten Lösung tiefsitzender energetischer und muskulärer Verspannungen.
+                    </p>
+                    <div className="pt-1 flex flex-wrap items-center justify-center sm:justify-start gap-2.5 text-xs font-medium text-brand-300">
+                      <span className="px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 flex items-center gap-1.5">
+                        <Sparkles className="w-3.5 h-3.5 text-brand-400" /> Wat Po Tradition
+                      </span>
+                      <span className="px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 flex items-center gap-1.5">
+                        <Sparkles className="w-3.5 h-3.5 text-brand-400" /> Shiatsu & Tuina
+                      </span>
+                    </div>
                   </div>
-                  <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white">
-                    Die 12 Hauptmeridiane
-                  </h3>
-                  <p className="text-sm sm:text-base text-slate-200 font-light leading-relaxed">
-                    Achtsame Arbeit entlang der Sen-Linien zur gezielten Lösung tiefsitzender energetischer und muskulärer Verspannungen.
-                  </p>
-                  <div className="pt-1 flex flex-wrap items-center gap-2.5 text-xs font-medium text-brand-300">
-                    <span className="px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 flex items-center gap-1.5">
-                      <Sparkles className="w-3.5 h-3.5 text-brand-400" /> Wat Po Tradition
-                    </span>
-                    <span className="px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 flex items-center gap-1.5">
-                      <Sparkles className="w-3.5 h-3.5 text-brand-400" /> Shiatsu & Tuina
-                    </span>
-                  </div>
+
                 </div>
               </div>
             </motion.div>
