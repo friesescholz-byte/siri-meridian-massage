@@ -208,6 +208,7 @@ export default function App() {
   const [giftModalOpen, setGiftModalOpen] = useState(false);
   const [impressumOpen, setImpressumOpen] = useState(false);
   const [datenschutzOpen, setDatenschutzOpen] = useState(false);
+  const [barrierefreiheitOpen, setBarrierefreiheitOpen] = useState(false);
   const [bookingSuccess, setBookingSuccess] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -504,29 +505,39 @@ export default function App() {
               </div>
 
               {/* BOTTOM CARD: UNIFIED 12 HAUPTMERIDIANE FEATURE SHOWCASE */}
-              <div className="p-5 sm:p-6 rounded-3xl glass-panel border border-brand-400/30 shadow-xl bg-gradient-to-br from-emerald-950/40 via-dark-800 to-dark-900 group">
-                <div className="flex flex-col sm:flex-row items-center gap-5">
-                  <div className="w-full sm:w-36 h-40 rounded-2xl overflow-hidden border border-brand-400/30 shadow-md shrink-0 bg-dark-900">
+              <div className="p-6 sm:p-7 rounded-3xl glass-panel border border-brand-400/35 shadow-2xl bg-gradient-to-br from-emerald-950/50 via-dark-800 to-dark-900 group">
+                <div className="flex flex-col sm:flex-row items-center gap-6">
+                  <div className="w-full sm:w-52 md:w-60 h-64 sm:h-72 rounded-2xl overflow-hidden border border-brand-400/40 shadow-xl shrink-0 bg-dark-900 relative">
                     <img
                       src={IMAGES.meridianModel}
                       alt="Meridian Modell und dtv-Atlas Akupunktur"
-                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-dark-950/80 via-transparent to-transparent opacity-90" />
+                    <div className="absolute bottom-3 left-3 right-3 text-center">
+                      <span className="px-3 py-1 rounded-full bg-dark-900/90 border border-brand-400/30 text-xs text-brand-300 font-medium backdrop-blur-md">
+                        Anatomisches Meridian-Modell
+                      </span>
+                    </div>
                   </div>
-                  <div className="space-y-2.5 text-center sm:text-left flex-1">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider">
-                      <Compass className="w-3.5 h-3.5" />
+                  <div className="space-y-3.5 text-center sm:text-left flex-1">
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/15 border border-emerald-500/35 text-emerald-400 text-xs font-bold uppercase tracking-wider">
+                      <Compass className="w-4 h-4 text-emerald-400" />
                       <span>Energielinien & Balance</span>
                     </div>
-                    <h3 className="font-serif text-xl sm:text-2xl font-bold text-white">
+                    <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white">
                       Die 12 Hauptmeridiane
                     </h3>
-                    <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">
+                    <p className="text-sm sm:text-base text-slate-200 font-light leading-relaxed">
                       Achtsame Arbeit entlang der Sen-Linien zur gezielten Lösung tiefsitzender energetischer und muskulärer Verspannungen.
                     </p>
-                    <div className="pt-1 flex flex-wrap items-center justify-center sm:justify-start gap-2 text-[11px] font-medium text-brand-300">
-                      <span className="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10">✦ Wat Po Tradition</span>
-                      <span className="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10">✦ Shiatsu & Tuina</span>
+                    <div className="pt-2 flex flex-wrap items-center justify-center sm:justify-start gap-2.5 text-xs font-medium text-brand-300">
+                      <span className="px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 flex items-center gap-1.5">
+                        <Sparkles className="w-3.5 h-3.5 text-brand-400" /> Wat Po Tradition
+                      </span>
+                      <span className="px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 flex items-center gap-1.5">
+                        <Sparkles className="w-3.5 h-3.5 text-brand-400" /> Shiatsu & Tuina
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -606,32 +617,9 @@ export default function App() {
             </p>
           </div>
 
-          {/* CATEGORY TABS */}
-          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-12">
-            {[
-              { id: 'all', label: 'Alle Massagen' },
-              { id: 'solution', label: 'Thai Solution' },
-              { id: 'ruudsen', label: 'Thai Ruudsen' },
-              { id: 'lymph', label: 'Lymphdrainage' },
-              { id: 'benja', label: 'Thai-Königs-Massage' }
-            ].map(tab => (
-              <button
-                key={tab.id}
-                onClick={() => setSelectedCategory(tab.id as any)}
-                className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all ${
-                  selectedCategory === tab.id
-                    ? 'bg-brand-400 text-dark-900 font-semibold shadow-lg shadow-brand-400/20'
-                    : 'bg-white/5 hover:bg-white/10 text-slate-200 border border-white/5'
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </div>
-
           {/* TREATMENTS CARDS GRID */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
-            {filteredTreatments.map((treatment) => {
+            {TREATMENTS.map((treatment) => {
               const IconComp = treatment.icon;
               return (
                 <motion.div
@@ -1111,6 +1099,11 @@ export default function App() {
                     Datenschutzerklärung
                   </button>
                 </li>
+                <li>
+                  <button onClick={() => setBarrierefreiheitOpen(true)} className="hover:text-brand-400">
+                    Erklärung zur Barrierefreiheit
+                  </button>
+                </li>
               </ul>
               <div className="pt-4">
                 <p className="text-xs text-slate-400">
@@ -1341,6 +1334,54 @@ export default function App() {
 
               <h2 className="font-serif text-2xl font-bold text-white">Datenschutzerklärung</h2>
               <p>Wir verarbeiten Ihre Daten ausschließlich zur Bearbeitung von Termin- und Gutscheinanfragen gemäß DSGVO.</p>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+
+      {/* BARRIEREFREIHEITSERKLÄRUNG MODAL */}
+      <AnimatePresence>
+        {barrierefreiheitOpen && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 20 }}
+              className="bg-dark-800 border border-white/10 rounded-3xl p-6 sm:p-8 max-w-2xl w-full max-h-[85vh] overflow-y-auto relative text-slate-200 text-base space-y-4"
+            >
+              <button
+                onClick={() => setBarrierefreiheitOpen(false)}
+                className="absolute top-6 right-6 p-2 rounded-full bg-white/5 text-slate-400 hover:text-white"
+              >
+                <X className="w-6 h-6" />
+              </button>
+
+              <h2 className="font-serif text-2xl font-bold text-white">Erklärung zur Barrierefreiheit</h2>
+              
+              <p className="text-sm text-slate-300 leading-relaxed">
+                Siri Meridian Massage ist bemüht, die eigene Website im Einklang mit den Bestimmungen des Barrierefreiheitsstärkungsgesetzes (BFSG) sowie den Richtlinien der Web Content Accessibility Guidelines (WCAG 2.1 – Konformitätsstufe AA) barrierefrei zugänglich zu machen.
+              </p>
+
+              <div className="space-y-2 pt-2">
+                <h4 className="font-bold text-white">Stand der Vereinbarkeit</h4>
+                <p className="text-sm text-slate-300 leading-relaxed">
+                  Diese Website ist mit den Vorgaben der BITV 2.0 weitestgehend vereinbar. Wir arbeiten kontinuierlich daran, Bedienbarkeit, Farbkontraste, Tastaturnavigation und Screenreader-Kompatibilität weiter zu optimieren.
+                </p>
+              </div>
+
+              <div className="space-y-2 pt-2">
+                <h4 className="font-bold text-white">Feedback und Kontakt</h4>
+                <p className="text-sm text-slate-300 leading-relaxed">
+                  Sollten Ihnen Mängel in Bezug auf die barrierefreie Gestaltung unserer Website auffallen, können Sie uns jederzeit kontaktieren:
+                </p>
+                <div className="p-4 rounded-xl bg-white/5 border border-white/10 text-sm space-y-1">
+                  <div className="font-bold text-white">Siri Meridian Massage</div>
+                  <div>Inhaberin: {CONTACT.owner}</div>
+                  <div>Adresse: {CONTACT.fullAddress}</div>
+                  <div>Telefon: <a href={CONTACT.phoneTel} className="text-brand-300 hover:underline">{CONTACT.phone}</a></div>
+                  <div>E-Mail: <a href={`mailto:${CONTACT.email}`} className="text-brand-300 hover:underline">{CONTACT.email}</a></div>
+                </div>
+              </div>
             </motion.div>
           </div>
         )}
