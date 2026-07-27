@@ -29,6 +29,13 @@ import {
   Compass
 } from 'lucide-react';
 
+// Official SVG WhatsApp Icon Component
+const WhatsappIcon = ({ className = "w-5 h-5" }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c-.001 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+);
+
 // Direct Cloudflare R2 Base Path & Image Manifest
 const R2_BASE = 'https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/siri-meridian-massage';
 
@@ -505,40 +512,41 @@ export default function App() {
               </div>
 
               {/* BOTTOM CARD: UNIFIED 12 HAUPTMERIDIANE FEATURE SHOWCASE */}
-              <div className="p-6 sm:p-7 rounded-3xl glass-panel border border-brand-400/35 shadow-2xl bg-gradient-to-br from-emerald-950/50 via-dark-800 to-dark-900 group">
-                <div className="flex flex-col sm:flex-row items-center gap-6">
-                  <div className="w-full sm:w-56 md:w-64 h-72 sm:h-80 rounded-2xl overflow-hidden border border-brand-400/40 shadow-xl shrink-0 bg-dark-950 relative flex items-center justify-center p-2">
-                    <img
-                      src={IMAGES.meridianModel}
-                      alt="Meridian Modell und dtv-Atlas Akupunktur"
-                      className="w-full h-full object-contain object-center group-hover:scale-105 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-dark-950 via-dark-950/70 to-transparent pointer-events-none" />
-                    <div className="absolute bottom-3 left-2 right-2 text-center">
-                      <span className="px-3 py-1 rounded-full bg-dark-900/90 border border-brand-400/30 text-xs text-brand-300 font-medium backdrop-blur-md">
-                        Anatomisches Meridian-Modell
-                      </span>
-                    </div>
+              <div className="p-6 sm:p-7 rounded-3xl glass-panel border border-brand-400/35 shadow-2xl bg-gradient-to-br from-emerald-950/50 via-dark-800 to-dark-900 group space-y-5">
+                
+                {/* Full-Width Landscape Image Banner (Matches Certificate card above) */}
+                <div className="relative rounded-2xl overflow-hidden border border-brand-400/40 shadow-xl bg-dark-950 aspect-[16/10]">
+                  <img
+                    src={IMAGES.meridianModel}
+                    alt="Meridian Modell und dtv-Atlas Akupunktur"
+                    className="w-full h-full object-cover object-[center_20%] group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-transparent to-transparent opacity-80" />
+                  <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+                    <span className="px-3 py-1 rounded-full bg-dark-900/90 border border-brand-400/30 text-xs text-brand-300 font-medium backdrop-blur-md">
+                      Anatomisches Meridian-Modell & Fachliteratur
+                    </span>
                   </div>
-                  <div className="space-y-3.5 text-center sm:text-left flex-1">
-                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/15 border border-emerald-500/35 text-emerald-400 text-xs font-bold uppercase tracking-wider">
-                      <Compass className="w-4 h-4 text-emerald-400" />
-                      <span>Energielinien & Balance</span>
-                    </div>
-                    <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white">
-                      Die 12 Hauptmeridiane
-                    </h3>
-                    <p className="text-sm sm:text-base text-slate-200 font-light leading-relaxed">
-                      Achtsame Arbeit entlang der Sen-Linien zur gezielten Lösung tiefsitzender energetischer und muskulärer Verspannungen.
-                    </p>
-                    <div className="pt-2 flex flex-wrap items-center justify-center sm:justify-start gap-2.5 text-xs font-medium text-brand-300">
-                      <span className="px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 flex items-center gap-1.5">
-                        <Sparkles className="w-3.5 h-3.5 text-brand-400" /> Wat Po Tradition
-                      </span>
-                      <span className="px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 flex items-center gap-1.5">
-                        <Sparkles className="w-3.5 h-3.5 text-brand-400" /> Shiatsu & Tuina
-                      </span>
-                    </div>
+                </div>
+
+                <div className="space-y-3">
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/15 border border-emerald-500/35 text-emerald-400 text-xs font-bold uppercase tracking-wider">
+                    <Compass className="w-4 h-4 text-emerald-400" />
+                    <span>Energielinien & Balance</span>
+                  </div>
+                  <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white">
+                    Die 12 Hauptmeridiane
+                  </h3>
+                  <p className="text-sm sm:text-base text-slate-200 font-light leading-relaxed">
+                    Achtsame Arbeit entlang der Sen-Linien zur gezielten Lösung tiefsitzender energetischer und muskulärer Verspannungen.
+                  </p>
+                  <div className="pt-1 flex flex-wrap items-center gap-2.5 text-xs font-medium text-brand-300">
+                    <span className="px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 flex items-center gap-1.5">
+                      <Sparkles className="w-3.5 h-3.5 text-brand-400" /> Wat Po Tradition
+                    </span>
+                    <span className="px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 flex items-center gap-1.5">
+                      <Sparkles className="w-3.5 h-3.5 text-brand-400" /> Shiatsu & Tuina
+                    </span>
                   </div>
                 </div>
               </div>
@@ -910,50 +918,73 @@ export default function App() {
                 </div>
               </div>
 
-              {/* Contact Information Cards (2x2 Grid) */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="p-4.5 rounded-2xl glass-panel border border-white/10 space-y-1.5">
-                  <div className="flex items-center gap-2.5 text-brand-300 font-bold text-sm">
-                    <MapPin className="w-4 h-4 text-brand-400 shrink-0" />
-                    <span>Studio Adresse</span>
+              {/* Contact Information Cards (Spacious & Un-cramped with WhatsApp Direct Button) */}
+              <div className="space-y-4">
+                
+                {/* Address Card */}
+                <div className="p-5 sm:p-6 rounded-2xl glass-panel border border-white/10 flex items-start gap-4">
+                  <div className="w-11 h-11 rounded-2xl bg-brand-400/10 border border-brand-400/30 flex items-center justify-center text-brand-400 shrink-0">
+                    <MapPin className="w-5 h-5" />
                   </div>
-                  <p className="text-xs text-slate-200 leading-normal font-light">
-                    {CONTACT.street}<br />
-                    {CONTACT.zipCity}
-                  </p>
+                  <div className="space-y-1">
+                    <h4 className="text-xs font-bold text-brand-300 uppercase tracking-wider">Studio Adresse</h4>
+                    <p className="text-sm sm:text-base text-white font-medium leading-relaxed">
+                      {CONTACT.street}, {CONTACT.zipCity}
+                    </p>
+                    <span className="text-xs text-slate-400 block">31582 Nienburg / Weser • Ruhige Wohlfühloase mit Parkplätzen</span>
+                  </div>
                 </div>
 
-                <div className="p-4.5 rounded-2xl glass-panel border border-white/10 space-y-1.5">
-                  <div className="flex items-center gap-2.5 text-brand-300 font-bold text-sm">
-                    <Phone className="w-4 h-4 text-brand-400 shrink-0" />
-                    <span>Telefon & WhatsApp</span>
+                {/* Phone & Direct WhatsApp Card */}
+                <div className="p-5 sm:p-6 rounded-2xl glass-panel border border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                  <div className="flex items-start gap-4">
+                    <div className="w-11 h-11 rounded-2xl bg-brand-400/10 border border-brand-400/30 flex items-center justify-center text-brand-400 shrink-0">
+                      <Phone className="w-5 h-5" />
+                    </div>
+                    <div className="space-y-1">
+                      <h4 className="text-xs font-bold text-brand-300 uppercase tracking-wider">Telefon & WhatsApp</h4>
+                      <a href={CONTACT.phoneTel} className="text-base sm:text-lg text-white font-bold hover:text-brand-300 block">
+                        {CONTACT.phone}
+                      </a>
+                    </div>
                   </div>
-                  <a href={CONTACT.phoneTel} className="text-xs text-white font-semibold hover:text-brand-300 block">
-                    {CONTACT.phone}
+
+                  {/* DIRECT WHATSAPP ACTION BUTTON */}
+                  <a
+                    href="https://wa.me/4915756311739?text=Hallo%20Siriwan,%20ich%20möchte%20gerne%20einen%20Termin%20anfragen."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4.5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs sm:text-sm flex items-center gap-2.5 shadow-lg shadow-emerald-900/40 hover:scale-[1.02] active:scale-[0.98] transition-all shrink-0 border border-emerald-400/30"
+                  >
+                    <WhatsappIcon className="w-5 h-5 text-white" />
+                    <span>WhatsApp Chat Starten</span>
                   </a>
-                  <span className="text-[11px] text-slate-400 block">WhatsApp Termine möglich</span>
                 </div>
 
-                <div className="p-4.5 rounded-2xl glass-panel border border-white/10 space-y-1.5">
-                  <div className="flex items-center gap-2.5 text-brand-300 font-bold text-sm">
-                    <Mail className="w-4 h-4 text-brand-400 shrink-0" />
-                    <span>E-Mail-Kontakt</span>
+                {/* Grid for Email & Hours */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="p-5 rounded-2xl glass-panel border border-white/10 space-y-2">
+                    <div className="flex items-center gap-2.5 text-brand-300 font-bold text-xs uppercase tracking-wider">
+                      <Mail className="w-4 h-4 text-brand-400 shrink-0" />
+                      <span>E-Mail-Kontakt</span>
+                    </div>
+                    <a href={`mailto:${CONTACT.email}`} className="text-xs sm:text-sm text-slate-100 font-medium hover:text-brand-300 break-all block">
+                      {CONTACT.email}
+                    </a>
                   </div>
-                  <a href={`mailto:${CONTACT.email}`} className="text-xs text-slate-200 hover:text-brand-300 truncate block">
-                    {CONTACT.email}
-                  </a>
+
+                  <div className="p-5 rounded-2xl glass-panel border border-white/10 space-y-2">
+                    <div className="flex items-center gap-2.5 text-brand-300 font-bold text-xs uppercase tracking-wider">
+                      <Clock className="w-4 h-4 text-brand-400 shrink-0" />
+                      <span>Öffnungszeiten</span>
+                    </div>
+                    <p className="text-xs sm:text-sm text-slate-200 leading-snug font-light">
+                      <strong className="text-white font-semibold">Mo – Sa:</strong> 09:00 – 19:30 Uhr<br />
+                      <span className="text-[11px] text-slate-400">So & Feiertage nach Absprache</span>
+                    </p>
+                  </div>
                 </div>
 
-                <div className="p-4.5 rounded-2xl glass-panel border border-white/10 space-y-1.5">
-                  <div className="flex items-center gap-2.5 text-brand-300 font-bold text-sm">
-                    <Clock className="w-4 h-4 text-brand-400 shrink-0" />
-                    <span>Öffnungszeiten</span>
-                  </div>
-                  <p className="text-xs text-slate-200 leading-tight font-light">
-                    Mo – Sa: 09:00 – 19:30 Uhr<br />
-                    <span className="text-[11px] text-slate-400">So & Feiertage nach Absprache</span>
-                  </p>
-                </div>
               </div>
             </div>
 
