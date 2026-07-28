@@ -30,8 +30,8 @@ import {
 } from 'lucide-react';
 
 // Official SVG WhatsApp Icon Component
-const WhatsappIcon = ({ className = "w-5 h-5" }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+const WhatsappIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
+  <svg className={`${className} shrink-0`} style={{ width: '1rem', height: '1rem' }} viewBox="0 0 24 24" fill="currentColor">
     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c-.001 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
   </svg>
 );
@@ -922,75 +922,66 @@ export default function App() {
                 </div>
               </div>
 
-              {/* Contact Information Cards with Dedicated WhatsApp Banner */}
-              <div className="space-y-4">
+              {/* Contact Information Cards (Clean 2x2 Grid) */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 
-                {/* Studio Address Card */}
-                <div className="p-5 rounded-2xl glass-panel border border-white/10 flex items-start gap-4">
-                  <div className="w-11 h-11 rounded-2xl bg-brand-400/10 border border-brand-400/30 flex items-center justify-center text-brand-400 shrink-0">
-                    <MapPin className="w-5 h-5" />
+                {/* Studio Adresse */}
+                <div className="p-5 rounded-2xl glass-panel border border-white/10 space-y-2">
+                  <div className="flex items-center gap-2 text-brand-300 font-bold text-xs uppercase tracking-wider">
+                    <MapPin className="w-4 h-4 text-brand-400 shrink-0" />
+                    <span>Studio Adresse</span>
                   </div>
-                  <div className="space-y-1">
-                    <h4 className="text-xs font-bold text-brand-300 uppercase tracking-wider">Studio Adresse</h4>
-                    <p className="text-sm sm:text-base text-white font-medium leading-relaxed">
-                      {CONTACT.street}, {CONTACT.zipCity}
-                    </p>
-                    <span className="text-xs text-slate-400 block">31582 Nienburg / Weser • Ruhige Wohlfühloase mit Parkplätzen</span>
-                  </div>
+                  <p className="text-xs sm:text-sm text-slate-100 font-medium leading-relaxed">
+                    {CONTACT.street}<br />
+                    {CONTACT.zipCity}
+                  </p>
+                  <span className="text-[11px] text-slate-400 block pt-0.5">Ruhige Wohlfühloase mit Parkplätzen</span>
                 </div>
 
-                {/* DEDICATED LUXURY WHATSAPP BOOKING CARD */}
-                <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-emerald-950/80 via-dark-800 to-dark-900 border border-emerald-500/40 shadow-xl space-y-3.5 group">
-                  <div className="flex items-start justify-between gap-3">
-                    <div className="flex items-center gap-3">
-                      <div className="w-11 h-11 rounded-2xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shrink-0 shadow-inner group-hover:scale-105 transition-transform">
-                        <WhatsappIcon className="w-5.5 h-5.5 text-emerald-400" />
-                      </div>
-                      <div>
-                        <div className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-emerald-400">
-                          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                          <span>Schnellkontakt per WhatsApp</span>
-                        </div>
-                        <h4 className="text-sm sm:text-base text-white font-bold block">
-                          {CONTACT.phone}
-                        </h4>
-                      </div>
-                    </div>
+                {/* Telefon & WhatsApp mit kleinem WhatsApp-Symbol direkt neben der Nummer */}
+                <div className="p-5 rounded-2xl glass-panel border border-white/10 space-y-2">
+                  <div className="flex items-center gap-2 text-brand-300 font-bold text-xs uppercase tracking-wider">
+                    <Phone className="w-4 h-4 text-brand-400 shrink-0" />
+                    <span>Telefon & WhatsApp</span>
                   </div>
+                  <div className="flex items-center gap-2 pt-1">
+                    <a href={CONTACT.phoneTel} className="text-sm sm:text-base font-bold text-white hover:text-brand-300 transition-colors">
+                      {CONTACT.phone}
+                    </a>
+                    <a
+                      href="https://wa.me/4915756311739?text=Hallo%20Siriwan,%20ich%20möchte%20gerne%20einen%20Termin%20anfragen."
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title="WhatsApp Chat starten"
+                      className="p-1.5 rounded-lg bg-emerald-500/20 text-emerald-400 hover:bg-emerald-500 hover:text-white transition-all border border-emerald-500/35 flex items-center justify-center shrink-0 shadow-sm"
+                    >
+                      <WhatsappIcon className="w-4 h-4 shrink-0 text-emerald-400 hover:text-white" />
+                    </a>
+                  </div>
+                  <span className="text-[11px] text-slate-400 block">WhatsApp Terminanfragen möglich</span>
+                </div>
 
-                  <a
-                    href="https://wa.me/4915756311739?text=Hallo%20Siriwan,%20ich%20möchte%20gerne%20einen%20Termin%20anfragen."
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full py-3 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2.5 shadow-lg shadow-emerald-950/60 hover:scale-[1.01] active:scale-[0.99] transition-all border border-emerald-400/40 uppercase tracking-wider"
-                  >
-                    <WhatsappIcon className="w-4.5 h-4.5 text-white" />
-                    <span>Jetzt WhatsApp Chat Starten</span>
+                {/* E-Mail-Kontakt */}
+                <div className="p-5 rounded-2xl glass-panel border border-white/10 space-y-2">
+                  <div className="flex items-center gap-2 text-brand-300 font-bold text-xs uppercase tracking-wider">
+                    <Mail className="w-4 h-4 text-brand-400 shrink-0" />
+                    <span>E-Mail-Kontakt</span>
+                  </div>
+                  <a href={`mailto:${CONTACT.email}`} className="text-xs sm:text-sm text-slate-100 font-medium hover:text-brand-300 break-all block">
+                    {CONTACT.email}
                   </a>
                 </div>
 
-                {/* Grid for Email & Hours */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="p-4.5 rounded-2xl glass-panel border border-white/10 space-y-1.5">
-                    <div className="flex items-center gap-2 text-brand-300 font-bold text-xs uppercase tracking-wider">
-                      <Mail className="w-4 h-4 text-brand-400 shrink-0" />
-                      <span>E-Mail-Kontakt</span>
-                    </div>
-                    <a href={`mailto:${CONTACT.email}`} className="text-xs sm:text-sm text-slate-100 font-medium hover:text-brand-300 break-all block">
-                      {CONTACT.email}
-                    </a>
+                {/* Öffnungszeiten */}
+                <div className="p-5 rounded-2xl glass-panel border border-white/10 space-y-2">
+                  <div className="flex items-center gap-2 text-brand-300 font-bold text-xs uppercase tracking-wider">
+                    <Clock className="w-4 h-4 text-brand-400 shrink-0" />
+                    <span>Öffnungszeiten</span>
                   </div>
-
-                  <div className="p-4.5 rounded-2xl glass-panel border border-white/10 space-y-1.5">
-                    <div className="flex items-center gap-2 text-brand-300 font-bold text-xs uppercase tracking-wider">
-                      <Clock className="w-4 h-4 text-brand-400 shrink-0" />
-                      <span>Öffnungszeiten</span>
-                    </div>
-                    <p className="text-xs sm:text-sm text-slate-200 leading-snug font-light">
-                      <strong className="text-white font-semibold">Mo – Sa:</strong> 09:00 – 19:30 Uhr<br />
-                      <span className="text-[11px] text-slate-400">So & Feiertage nach Absprache</span>
-                    </p>
-                  </div>
+                  <p className="text-xs sm:text-sm text-slate-200 leading-snug font-light">
+                    <strong className="text-white font-semibold">Mo – Sa:</strong> 09:00 – 19:30 Uhr<br />
+                    <span className="text-[11px] text-slate-400">So & Feiertage nach Absprache</span>
+                  </p>
                 </div>
 
               </div>
