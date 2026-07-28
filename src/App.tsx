@@ -305,13 +305,12 @@ export default function App() {
 
       {/* HERO SECTION */}
       <section className="pt-32 pb-20 sm:pt-40 sm:pb-28 relative overflow-hidden bg-[#FAF8F5]">
-        {/* FESTSTEHENDES SPECIAL HINTERGRUNDBILD (99% DECKKRAFT) */}
+        {/* FESTSTEHENDES SPECIAL HINTERGRUNDBILD (100% DECKKRAFT) */}
         <div 
-          className="absolute inset-0 bg-fixed bg-cover bg-right-top pointer-events-none z-0 opacity-[0.99]"
+          className="absolute inset-0 bg-fixed bg-cover bg-right-top pointer-events-none z-0 opacity-100"
           style={{ backgroundImage: `url(${IMAGES.specialBg})` }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#FAF8F5] via-[#FAF8F5]/60 to-transparent pointer-events-none z-0" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#FAF8F5]/40 via-transparent to-[#FAF8F5] pointer-events-none z-0" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#FAF8F5] via-[#FAF8F5]/40 to-transparent pointer-events-none z-0" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
@@ -558,12 +557,12 @@ export default function App() {
 
       {/* TREATMENTS & PRICING SECTION */}
       <section id="behandlungen" className="py-24 relative overflow-hidden bg-[#FAF8F5]">
-        {/* FESTSTEHENDES SPECIAL HINTERGRUNDBILD (99% DECKKRAFT) */}
+        {/* FESTSTEHENDES SPECIAL HINTERGRUNDBILD (100% DECKKRAFT) */}
         <div 
-          className="absolute inset-0 bg-fixed bg-cover bg-right-center pointer-events-none z-0 opacity-[0.99]"
+          className="absolute inset-0 bg-fixed bg-cover bg-right-center pointer-events-none z-0 opacity-100"
           style={{ backgroundImage: `url(${IMAGES.specialBg})` }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#FAF8F5]/80 via-[#FAF8F5]/40 to-[#FAF8F5]/90 pointer-events-none z-0" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#FAF8F5]/60 via-transparent to-[#FAF8F5]/80 pointer-events-none z-0" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
