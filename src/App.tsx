@@ -922,11 +922,11 @@ export default function App() {
                 </div>
               </div>
 
-              {/* Contact Information Cards (Spacious & Un-cramped with WhatsApp Direct Button) */}
+              {/* Contact Information Cards with Dedicated WhatsApp Banner */}
               <div className="space-y-4">
                 
-                {/* Address Card */}
-                <div className="p-5 sm:p-6 rounded-2xl glass-panel border border-white/10 flex items-start gap-4">
+                {/* Studio Address Card */}
+                <div className="p-5 rounded-2xl glass-panel border border-white/10 flex items-start gap-4">
                   <div className="w-11 h-11 rounded-2xl bg-brand-400/10 border border-brand-400/30 flex items-center justify-center text-brand-400 shrink-0">
                     <MapPin className="w-5 h-5" />
                   </div>
@@ -939,36 +939,40 @@ export default function App() {
                   </div>
                 </div>
 
-                {/* Phone & Direct WhatsApp Card */}
-                <div className="p-5 sm:p-6 rounded-2xl glass-panel border border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                  <div className="flex items-start gap-4">
-                    <div className="w-11 h-11 rounded-2xl bg-brand-400/10 border border-brand-400/30 flex items-center justify-center text-brand-400 shrink-0">
-                      <Phone className="w-5 h-5" />
-                    </div>
-                    <div className="space-y-1">
-                      <h4 className="text-xs font-bold text-brand-300 uppercase tracking-wider">Telefon & WhatsApp</h4>
-                      <a href={CONTACT.phoneTel} className="text-base sm:text-lg text-white font-bold hover:text-brand-300 block">
-                        {CONTACT.phone}
-                      </a>
+                {/* DEDICATED LUXURY WHATSAPP BOOKING CARD */}
+                <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-emerald-950/80 via-dark-800 to-dark-900 border border-emerald-500/40 shadow-xl space-y-3.5 group">
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="flex items-center gap-3">
+                      <div className="w-11 h-11 rounded-2xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shrink-0 shadow-inner group-hover:scale-105 transition-transform">
+                        <WhatsappIcon className="w-5.5 h-5.5 text-emerald-400" />
+                      </div>
+                      <div>
+                        <div className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-emerald-400">
+                          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                          <span>Schnellkontakt per WhatsApp</span>
+                        </div>
+                        <h4 className="text-sm sm:text-base text-white font-bold block">
+                          {CONTACT.phone}
+                        </h4>
+                      </div>
                     </div>
                   </div>
 
-                  {/* DIRECT WHATSAPP ACTION BUTTON */}
                   <a
                     href="https://wa.me/4915756311739?text=Hallo%20Siriwan,%20ich%20möchte%20gerne%20einen%20Termin%20anfragen."
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-4.5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs sm:text-sm flex items-center gap-2.5 shadow-lg shadow-emerald-900/40 hover:scale-[1.02] active:scale-[0.98] transition-all shrink-0 border border-emerald-400/30"
+                    className="w-full py-3 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2.5 shadow-lg shadow-emerald-950/60 hover:scale-[1.01] active:scale-[0.99] transition-all border border-emerald-400/40 uppercase tracking-wider"
                   >
-                    <WhatsappIcon className="w-5 h-5 text-white" />
-                    <span>WhatsApp Chat Starten</span>
+                    <WhatsappIcon className="w-4.5 h-4.5 text-white" />
+                    <span>Jetzt WhatsApp Chat Starten</span>
                   </a>
                 </div>
 
                 {/* Grid for Email & Hours */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="p-5 rounded-2xl glass-panel border border-white/10 space-y-2">
-                    <div className="flex items-center gap-2.5 text-brand-300 font-bold text-xs uppercase tracking-wider">
+                  <div className="p-4.5 rounded-2xl glass-panel border border-white/10 space-y-1.5">
+                    <div className="flex items-center gap-2 text-brand-300 font-bold text-xs uppercase tracking-wider">
                       <Mail className="w-4 h-4 text-brand-400 shrink-0" />
                       <span>E-Mail-Kontakt</span>
                     </div>
@@ -977,8 +981,8 @@ export default function App() {
                     </a>
                   </div>
 
-                  <div className="p-5 rounded-2xl glass-panel border border-white/10 space-y-2">
-                    <div className="flex items-center gap-2.5 text-brand-300 font-bold text-xs uppercase tracking-wider">
+                  <div className="p-4.5 rounded-2xl glass-panel border border-white/10 space-y-1.5">
+                    <div className="flex items-center gap-2 text-brand-300 font-bold text-xs uppercase tracking-wider">
                       <Clock className="w-4 h-4 text-brand-400 shrink-0" />
                       <span>Öffnungszeiten</span>
                     </div>
@@ -1021,12 +1025,12 @@ export default function App() {
                           Ihr Name *
                         </label>
                         <div className="relative">
-                          <User className="w-4.5 h-4.5 text-slate-400 absolute left-4 top-4" />
+                          <User className="w-4.5 h-4.5 text-brand-400 absolute left-4 top-4 pointer-events-none" />
                           <input
                             type="text"
                             required
                             placeholder="Vor- und Nachname"
-                            className="w-full pl-11 pr-4 py-3.5 rounded-xl bg-dark-950/80 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-brand-400 text-sm font-medium transition-colors"
+                            className="w-full pl-11 pr-4 py-3.5 rounded-xl bg-dark-950 border border-brand-400/25 text-white placeholder-slate-400 focus:outline-none focus:border-brand-400 focus:ring-1 focus:ring-brand-400/50 text-sm font-medium transition-all shadow-inner"
                           />
                         </div>
                       </div>
@@ -1035,12 +1039,12 @@ export default function App() {
                           Telefonnummer (für Rückruf/WhatsApp) *
                         </label>
                         <div className="relative">
-                          <Phone className="w-4.5 h-4.5 text-slate-400 absolute left-4 top-4" />
+                          <Phone className="w-4.5 h-4.5 text-brand-400 absolute left-4 top-4 pointer-events-none" />
                           <input
                             type="tel"
                             required
                             placeholder={CONTACT.phoneDisplay}
-                            className="w-full pl-11 pr-4 py-3.5 rounded-xl bg-dark-950/80 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-brand-400 text-sm font-medium transition-colors"
+                            className="w-full pl-11 pr-4 py-3.5 rounded-xl bg-dark-950 border border-brand-400/25 text-white placeholder-slate-400 focus:outline-none focus:border-brand-400 focus:ring-1 focus:ring-brand-400/50 text-sm font-medium transition-all shadow-inner"
                           />
                         </div>
                       </div>
@@ -1056,10 +1060,10 @@ export default function App() {
                           <select
                             value={selectedBookingTreatmentId}
                             onChange={(e) => setSelectedBookingTreatmentId(e.target.value)}
-                            className="w-full pl-11 pr-4 py-3.5 rounded-xl bg-dark-950/80 border border-white/10 text-white focus:outline-none focus:border-brand-400 text-sm font-medium transition-colors appearance-none cursor-pointer"
+                            className="w-full pl-11 pr-4 py-3.5 rounded-xl bg-dark-950 border border-brand-400/25 text-white focus:outline-none focus:border-brand-400 focus:ring-1 focus:ring-brand-400/50 text-sm font-medium transition-all appearance-none cursor-pointer shadow-inner"
                           >
                             {TREATMENTS.map(t => (
-                              <option key={t.id} value={t.id}>{t.name}</option>
+                              <option key={t.id} value={t.id} className="bg-dark-900 text-white">{t.name}</option>
                             ))}
                           </select>
                         </div>
@@ -1069,10 +1073,10 @@ export default function App() {
                           Wunschdatum & Uhrzeit
                         </label>
                         <div className="relative">
-                          <Calendar className="w-4.5 h-4.5 text-slate-400 absolute left-4 top-4 pointer-events-none" />
+                          <Calendar className="w-4.5 h-4.5 text-brand-400 absolute left-4 top-4 pointer-events-none" />
                           <input
                             type="datetime-local"
-                            className="w-full pl-11 pr-4 py-3.5 rounded-xl bg-dark-950/80 border border-white/10 text-white focus:outline-none focus:border-brand-400 text-sm font-medium transition-colors"
+                            className="w-full pl-11 pr-4 py-3.5 rounded-xl bg-dark-950 border border-brand-400/25 text-white focus:outline-none focus:border-brand-400 focus:ring-1 focus:ring-brand-400/50 text-sm font-medium transition-all shadow-inner"
                           />
                         </div>
                       </div>
@@ -1085,7 +1089,7 @@ export default function App() {
                       <textarea
                         rows={3}
                         placeholder="z. B. Nacken- oder Rückenverspannungen, Wunschuhrzeit oder Fragen..."
-                        className="w-full px-4 py-3.5 rounded-xl bg-dark-950/80 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-brand-400 text-sm font-medium transition-colors"
+                        className="w-full px-4 py-3.5 rounded-xl bg-dark-950 border border-brand-400/25 text-white placeholder-slate-400 focus:outline-none focus:border-brand-400 focus:ring-1 focus:ring-brand-400/50 text-sm font-medium transition-all shadow-inner"
                       />
                     </div>
                   </div>
