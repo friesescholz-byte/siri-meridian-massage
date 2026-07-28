@@ -887,10 +887,10 @@ export default function App() {
       {/* CONTACT & LOCATION SECTION */}
       <section id="kontakt" className="py-24 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-stretch">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-start">
             
             {/* LEFT CONTACT INFO & STUDIO SHOWCASE */}
-            <div className="lg:col-span-5 flex flex-col justify-between space-y-8">
+            <div className="lg:col-span-5 space-y-8">
               <div className="space-y-4">
                 <div className="inline-flex items-center gap-2.5 px-4.5 py-2 rounded-full bg-brand-400/10 border border-brand-400/30 text-brand-300 text-xs font-bold uppercase tracking-wider">
                   <MapPin className="w-3.5 h-3.5 text-brand-400" />
@@ -987,9 +987,9 @@ export default function App() {
               </div>
             </div>
 
-            {/* RIGHT APPOINTMENT REQUEST FORM CARD */}
-            <div className="lg:col-span-7 flex flex-col">
-              <div className="p-8 sm:p-10 rounded-3xl glass-panel border border-brand-400/35 shadow-2xl bg-gradient-to-br from-emerald-950/50 via-dark-800 to-dark-900 flex-1 flex flex-col justify-between space-y-6 relative overflow-hidden">
+            {/* RIGHT APPOINTMENT REQUEST FORM CARD (COMPACT & NATURAL HEIGHT) */}
+            <div className="lg:col-span-7">
+              <div className="p-7 sm:p-9 rounded-3xl glass-panel border border-brand-400/35 shadow-2xl bg-gradient-to-br from-emerald-950/50 via-dark-800 to-dark-900 space-y-6 relative overflow-hidden">
                 
                 {/* FORM HEADER WITH EMBLEM */}
                 <div className="flex items-center gap-4 pb-4 border-b border-white/10">
@@ -1008,7 +1008,7 @@ export default function App() {
                 </div>
                 
                 {/* FORM FIELDS */}
-                <form onSubmit={handleBookingSubmit} className="space-y-4 flex-1 flex flex-col justify-between">
+                <form onSubmit={handleBookingSubmit} className="space-y-4">
                   <div className="space-y-4">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
