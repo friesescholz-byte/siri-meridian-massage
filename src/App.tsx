@@ -48,6 +48,7 @@ const IMAGES = {
   roomSecondary: `${R2_BASE}/1434-YBgjwG6pBGSaJWED_ergebnis.webp`,
   roomPanorama: `${R2_BASE}/asset-54-mv0PbwEkVoiLOGkR_ergebnis.webp`,
   voucher: `${R2_BASE}/gutschein-vor-YKb8jzOy4lu9OngO_ergebnis.webp`,
+  specialBg: `${R2_BASE}/Siri-Websiten%20hintergrund_ergebnis.webp`,
   treatmentSolution: `${R2_BASE}/Thai%20Solution%20Massage_ergebnis.webp`,
   treatmentRuudsen: `${R2_BASE}/Thai%20Ruudsen%20Massage_ergebnis.webp`,
   treatmentLymph: `${R2_BASE}/Thai%20Lymphdrainage%20Massage_ergebnis.webp`,
@@ -303,8 +304,15 @@ export default function App() {
       </AnimatePresence>
 
       {/* HERO SECTION */}
-      <section className="pt-32 pb-20 sm:pt-40 sm:pb-28 relative overflow-hidden bg-gradient-to-b from-emerald-900/5 via-[#FAF8F5] to-[#FAF8F5]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="pt-32 pb-20 sm:pt-40 sm:pb-28 relative overflow-hidden bg-[#FAF8F5]">
+        {/* FIXED SPECIAL BACKGROUND LAYER */}
+        <div 
+          className="absolute inset-0 bg-fixed bg-cover bg-center pointer-events-none opacity-30"
+          style={{ backgroundImage: `url(${IMAGES.specialBg})` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#FAF8F5]/85 via-[#FAF8F5]/65 to-[#FAF8F5] pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
             
             {/* LEFT HERO TEXT CONTENT */}
@@ -549,7 +557,14 @@ export default function App() {
 
       {/* TREATMENTS & PRICING SECTION */}
       <section id="behandlungen" className="py-24 relative overflow-hidden bg-[#FAF8F5]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* FIXED SPECIAL BACKGROUND LAYER */}
+        <div 
+          className="absolute inset-0 bg-fixed bg-cover bg-center pointer-events-none opacity-30"
+          style={{ backgroundImage: `url(${IMAGES.specialBg})` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#FAF8F5]/90 via-[#FAF8F5]/75 to-[#FAF8F5]/95 pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           
           {/* SECTION HEADER */}
           <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
